@@ -1,0 +1,268 @@
+<!-- Template by Jonathan Law -->
+<html lang="en">
+    <head>
+        <title>Website Style Guide</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+
+        <!-- Always add more information here for SEO such as description, keywords, meta theme color etc.. -->
+        <!-- Ignore if it is for demostration purposes -->
+        <!-- Some examples below -->
+        <meta name="description" content="A sample website for creating a style guide">
+        <meta name="keywords" content="style guide website, sample website">
+        <meta name="author" content="Jonathan Law">
+    </head>
+    
+    <style>
+        html {
+            font-family: 'Didact Gothic', sans-serif;
+        }
+    
+        /* Define standard colors to be used as variables */
+        :root {
+            --primary-color: #152CFF;
+            --primary-shade: rgba(21, 44, 255, 0.2);
+            --red: #FF421D;
+            --dark-bg: #222831;
+        }
+    
+        /* Change text selection color if you need */
+        ::selection { background: var(--primary-shade); }
+    
+        /* Scrollbar for custom feel */
+        ::-webkit-scrollbar { width: 12px; }
+    
+        ::-webkit-scrollbar-thumb {
+            background: var(--dark-bg); 
+            border-radius: 4px;
+        }
+    
+        ::-webkit-scrollbar-thumb:hover { background: #111318; }
+    
+        .main { padding: 24px; }
+    
+        .dark-theme {
+            background-color: var(--dark-bg);
+            --primary-color: #2CDDA2;
+            --primary-shade: rgba(44, 221, 162, 0.2)
+        }
+    
+        .dark-theme :is(h1, h2, h3, p) {
+            color: white;
+        }
+    
+        .design-area-block {  margin: 12px; }
+    
+        .special {
+            text-shadow: -4px 0 0px var(--primary-shade);
+        }
+    
+        .warning {
+            color: var(--red);
+            font-weight: 600;
+        }
+    
+        .highlight {
+            color: white;
+            padding: 0 8px;
+            background-color: var(--primary-color);
+        }
+    
+        /* Using color:inherit allows us to control the font color without doing too much */
+        h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            color: inherit;
+        }
+    
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 300;
+            color: inherit;
+        }
+    
+        h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: inherit;
+        }
+    
+        h4 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+    
+        h5 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+    
+        p {
+            letter-spacing: none;
+            color: inherit;
+        }
+    
+        /* Style the href */
+        .link {
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+    
+        .link::after {
+            content: "";
+            background: var(--primary-shade);
+            position: absolute;
+            left: 12px;
+            bottom: -2px;
+            width: calc(100% - 8px);
+            height: calc(100% - 8px);
+            z-index: 0;
+            transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+        }
+    
+        .link:hover::after {
+            content: "";
+            background: none;
+            left: 80%;
+            bottom: 4px;
+            width: 8px;
+            height: 8px;
+            border: var(--primary-shade);
+            display: inline-block;
+            border-width: 0 4px 4px 0;
+            border-style: solid;
+            transform: rotate(-45deg);
+        }
+    
+        /* Style the image and its container */
+        .image-container {
+            position: relative;
+            display: inline-block;
+            min-height: 120px;
+            min-width: 120px;
+            z-index: 1;
+        }
+    
+        .image-container > img {
+            border: 1px var(--primary-color) solid;
+            object-fit: cover;
+            max-width: 320px;
+            max-height: 480px;
+            width: 100%;
+        }
+    
+        .image-container:after {
+            position: absolute;
+            content: '';
+            height: 95%;
+            width: 95%;
+            left: 5%;
+            top: 5%;
+            z-index: 0;
+            border-bottom: 12px var(--primary-color) solid;
+            border-right: 12px var(--primary-color) solid;
+        }
+    
+        .image-container:hover:after {
+            left: 5%;
+            top: 5%;
+            z-index: 0;
+            border-bottom: 16px var(--primary-color) solid;
+            border-right: 16px var(--primary-color) solid;
+        }
+    
+        /* Some sample for a responsive mobile view */
+        @media only screen and (max-width: 600px) {
+            .main { padding: 8px; }
+    
+            .image-container > img {
+                max-height: 320px;
+            }
+        }
+    </style>
+    
+    <body>
+        <!-- Light theme sample -->
+        <div class="main">
+            <div class="design-area-block">
+                <h1><span class="special">Website</span> Style Guide</h1>
+            </div>
+        
+            <div class="design-area-block">
+                <h2>H2 - The second header</h2>
+            </div>
+        
+            <div class="design-area-block">
+                <h3>H3 - Whatever you need, it should be <span class="highlight">covered</span></h3>
+            </div>
+            
+            <div class="design-area-block">
+                <h4>H4 - Some pop to it!</h4>
+            </div>
+            
+            <div class="design-area-block">
+                <h5>H5 - Can be used as small sections title</h5>
+            </div>
+            
+            <div class="design-area-block">
+                <p>P - Check out the author at <a class="link" href="https://jonathanlawhh.github.io" target="_blank">his website.</a><br>
+                    For more information, check out our <a class="link" href="#">FAQ.</a><br>
+                    Becareful tho, <span class="warning">DO NOT</span> copy and paste blindly.
+                </p>
+            </div>
+        
+            <div class="design-area-block">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/h7XsRfX.jpg" loading="lazy" alt="Some cat image from imgur">
+                </div>
+            </div>
+        </div>
+    
+        <!-- Dark theme sample -->
+        <div class="main dark-theme" style="margin-top: 24px; border-radius: 24px;">
+            <div class="design-area-block">
+                <h1><span class="special">Website</span> Style Guide</h1>
+            </div>
+        
+            <div class="design-area-block">
+                <h2>H2 - The second header</h2>
+            </div>
+        
+            <div class="design-area-block">
+                <h3>H3 - Whatever you need, it should be <span class="highlight">covered</span></h3>
+            </div>
+            
+            <div class="design-area-block">
+                <h4>H4 - Some pop to it!</h4>
+            </div>
+            
+            <div class="design-area-block">
+                <h5>H5 - Can be used as small sections title</h5>
+            </div>
+            
+            <div class="design-area-block">
+                <p>P - Check out the author at <a class="link" href="https://jonathanlawhh.github.io" target="_blank">his website.</a><br>
+                    For more information, check out our <a class="link" href="#">FAQ.</a><br>
+                    Becareful tho, <span class="warning">DO NOT</span> copy and paste blindly.
+                </p>
+            </div>
+        
+            <div class="design-area-block">
+                <div class="image-container">
+                    <img src="https://i.imgur.com/LljZfbG.png" loading="lazy" alt="A dramatic cat">
+                </div>
+            </div>
+        </div>
+    
+        <!-- Some footer content -->
+        <div class="main">
+            <p>Created by <span class="highlight">Jonathan Law</span></p>
+            <p class="warning">For demonstration purposes only</p>
+        </div>
+    </body>
+</html>
